@@ -10,7 +10,9 @@
 
 (defmethod pull* :join
   [m res {:keys [key query]}]
-  (assoc res key (pull (key m) query)))
+  (if-let [v (pull (key m) query)] 
+    (assoc res key v)
+    res))
 
 (defn keyword->ast [k]
   {:type :prop
@@ -34,4 +36,5 @@
 (defn pull
   "Like Datomic pull but over maps of maps."
   [m pattern]
-  (reduce (partial pull* m) {} (into [] (map expr->ast) pattern)))
+  (when m
+    (reduce (partial pull* m) nil (into [] (map expr->ast) pattern))))
