@@ -1,6 +1,6 @@
-(defproject org.clojars.akiel/pull "0.1-SNAPSHOT"
+(defproject org.clojars.akiel/pull "0.1"
   :description "Pull like in Datomic but over maps of maps."
-  :url "http://example.com/FIXME"
+  :url "https://github.com/alexanderkiel/pull"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   
